@@ -20,7 +20,7 @@ $angular-crypto-api-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$angular-crypto-api-theme: mat.define-light-theme((
+$angular-crypto-api-theme: mat.define-dark-theme((
   color: (
     primary: $angular-crypto-api-primary,
     accent: $angular-crypto-api-accent,

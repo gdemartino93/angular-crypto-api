@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-crypto-api';
-  selected = 'EUR';
+  selectedCurrency : string ='EUR'
+
+  constructor(){
+  }
+  changeCurrency(event:string){
+    console.log(event)
+  }
 }

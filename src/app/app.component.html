@@ -2,9 +2,8 @@
 <h1 class="text-danger">
   AngleCoin
 </h1>
-<mat-form-field appearance="fill">
-
-  <mat-select [(value)]="selected">
+<mat-form-field  >
+  <mat-select (valueChange)="changeCurrency($event)" [(ngModel)]="selectedCurrency">
     <mat-option value="EUR">EUR</mat-option>
     <mat-option value="USD">USD</mat-option>
   </mat-select>
