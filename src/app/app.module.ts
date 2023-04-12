@@ -9,10 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { CoinListComponent } from './component/coin-list/coin-list.component';
+import { CoinDetailComponent } from './component/coin-detail/coin-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CoinListComponent,
+    CoinDetailComponent
   ],
   imports: [
     BrowserModule,
