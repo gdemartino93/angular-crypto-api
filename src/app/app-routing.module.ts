@@ -9,7 +9,7 @@ const routes: Routes = [
     component : CoinListComponent
   },
   {
-    path : 'coin-detail',
+    path : 'coin-detail/:id',
     component : CoinDetailComponent
   }
 ];
