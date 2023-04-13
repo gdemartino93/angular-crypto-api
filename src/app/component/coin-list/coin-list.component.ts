@@ -4,6 +4,7 @@ import {AfterViewInit , ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { log } from 'console';
 @Component({
   selector: 'app-coin-list',
   templateUrl: './coin-list.component.html',
@@ -19,7 +20,7 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   ngOnInit(): void {
-    // this.getAllData();
+    this.getAllData();
     this.getBannerData();
   }
   getAllData(){
@@ -29,6 +30,7 @@ export class CoinListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(res)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort
+      console.log(this.dataSource)
     })
   }
   getBannerData(){
