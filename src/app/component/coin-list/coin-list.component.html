@@ -5,13 +5,13 @@
   <div class="sub-header">
     <div class="scorrimento" >
       <div class="d-flex  mycard">
-        <div class="d-flex flex-column justify-content-center align-items-center mycard" *ngFor="let coin of coins">
+        <div class="d-flex flex-column justify-content-center align-items-center " *ngFor="let coin of coins">
           <img src="{{ coin.image }}"  alt="{{ coin.name }}" class="mx-5 my-3" >
           <span class="my-3 fs-2">{{ coin.name }}</span>
           <span class="{{ coin.price_change_percentage_24h >= 1 ? 'text-success' : 'text-danger' }} fs-4">
             {{ coin.price_change_percentage_24h }}%
           </span>
-          <span class="py-5 fs-4">{{ coin.current_price | currency:'EUR' }}</span>
+          <span class="my-3 fs-4">{{ coin.current_price | currency:'EUR' }}</span>
         </div>
       </div>
     </div>

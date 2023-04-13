@@ -20,7 +20,7 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   ngOnInit(): void {
-    this.getAllData();
+    // this.getAllData();
     this.getBannerData();
   }
   getAllData(){
