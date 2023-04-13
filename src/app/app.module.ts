@@ -13,6 +13,7 @@ import { CoinListComponent } from './component/coin-list/coin-list.component';
 import { CoinDetailComponent } from './component/coin-detail/coin-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import {MatTableModule} from '@angular/material/table';
     MatOptionModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
 
 
   ],
