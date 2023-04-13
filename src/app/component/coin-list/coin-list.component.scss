@@ -3,9 +3,51 @@
   color: white;
   .titolo{
     font-size: 60px;
-    color: #dc3545;
+    color:white#dc3545;
   }
   .scorrimento{
     min-height: 20vh;
+    display: flex;
+
+  }
+}
+.container-loghi{
+  img {
+    border-radius: 10px;
+    width: 120px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+.mycard {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  padding: 10px;
+  margin: 40px;
+  width: 100px;
+  height: 200px;
+  img {
+      width: 100px;
+      margin: 0 auto;
+      background-color: #212121;
+  }
+  h5 {
+      font-weight: 500;
+  }
+  p {
+      font-weight: 700;
+  }
+}
+.scorrimento {
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
