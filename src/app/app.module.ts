@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { CoinListComponent } from './component/coin-list/coin-list.component';
 import { CoinDetailComponent } from './component/coin-detail/coin-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatOptionModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
 
 
   ],

@@ -5,18 +5,44 @@
   <div class="sub-header">
     <div class="scorrimento" >
       <div class="d-flex  mycard">
-        <div class="d-flex flex-column justify-content-center align-items-center mycard" *ngFor="let coin of coins">
+        <div class="d-flex flex-column justify-content-center align-items-center" *ngFor="let coin of coins">
           <img src="{{ coin.image }}"  alt="{{ coin.name }}" class="mx-5 my-3" >
           <span class="my-3 fs-2">{{ coin.name }}</span>
           <span class="{{ coin.price_change_percentage_24h >= 1 ? 'text-success' : 'text-danger' }} fs-4">
             {{ coin.price_change_percentage_24h }}%
           </span>
-          <span class="py-5 fs-4">{{ coin.current_price | currency:'EUR' }}</span>
+          <span class="fs-4">{{ coin.current_price | currency:'EUR' }}</span>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container my-5">
-  coins
-</div>
+  <table mat-table class="mat-elevation-z8 demo-table">
+  <!-- Position Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Prezzo</th>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Variazione 24h</th>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef>Capitalizzazione</th>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+</table>
+

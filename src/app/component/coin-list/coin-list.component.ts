@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { log } from 'console';
 import { ApiService } from 'src/app/service/api.service';
 
 @Component({
@@ -10,6 +9,8 @@ import { ApiService } from 'src/app/service/api.service';
 export class CoinListComponent implements OnInit {
 
   constructor(private api: ApiService) { }
+  displayedColumns: string[] = ['nome', 'name', 'weight', 'symbol'];
+
 
   coins : any[] = [];
   ngOnInit(): void {
