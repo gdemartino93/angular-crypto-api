@@ -22,7 +22,7 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    // this.getAllData();
+    this.getAllData();
     this.getBannerData();
   }
   //ottieni tutti risposta e riempi la tabella di angular material
