@@ -44,4 +44,8 @@ export class CoinListComponent implements OnInit {
       console.log(this.coins)
     })
   }
+  //funzione per aprire la moneta cliccata
+  goToCoin(){
+    console.log("asd");
+  }
 }
