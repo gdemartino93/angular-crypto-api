@@ -4,6 +4,7 @@ import {AfterViewInit , ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coin-list',
@@ -12,7 +13,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class CoinListComponent implements OnInit {
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router:Router) { }
 
   coins : any[] = []; //array che conterrà tutte le monete in trend per il jumbotron
 
@@ -45,7 +46,7 @@ export class CoinListComponent implements OnInit {
     })
   }
   //funzione per aprire la moneta cliccata
-  goToCoin(){
-    console.log("asd");
+  goToCoin(element:any){
+    this.router.navigate(["coin-detail"], { queryParams: { id: element.id } });
   }
 }

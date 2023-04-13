@@ -57,7 +57,7 @@
       </ng-container>
 
       <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr (click)="goToCoin()" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr (click)="goToCoin(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"
