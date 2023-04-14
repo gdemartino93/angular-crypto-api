@@ -16,7 +16,7 @@ export class CoinDetailComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: `Price Trends`,
+        label: `Grafico del valore`,
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: '#009688',
         pointBackgroundColor: '#009688',
@@ -43,7 +43,7 @@ export class CoinDetailComponent implements OnInit {
   @ViewChild(BaseChartDirective) myLineChart !: BaseChartDirective;
   coinId : any;
   coinData !: any;
-  days? : number;
+  days : number = 30;
 
   constructor(private api : ApiService,private activatedRoute : ActivatedRoute) { }
 
@@ -64,6 +64,9 @@ getSingleCoin(){
 getGraph(){
   this.api.getGrpahicalCurrencyData(this.coinId,'EUR',1)
   .subscribe(res => {
+    setTimeout(() => {
+      this.myLineChart.chart?.update();
+    }, 200);
    this.lineChartData.datasets[0].data = res.prices.map((el:any)=>{
     return el[1];
    })
