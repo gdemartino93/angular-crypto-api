@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/service/api.service';
 export class CoinDetailComponent implements OnInit {
 
   coinId : any;
-  coinData !: string | undefined;
+  coinData !: any;
   constructor(private api : ApiService,private activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
