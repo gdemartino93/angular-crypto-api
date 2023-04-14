@@ -5,7 +5,7 @@ import { CoinDetailComponent } from './component/coin-detail/coin-detail.compone
 
 const routes: Routes = [
   {
-    path : 'coin-list',
+    path : '',
     component : CoinListComponent
   },
   {
