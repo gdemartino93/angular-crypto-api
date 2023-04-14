@@ -15,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
-import {MatSortModule} from '@angular/material/sort'
+import {MatSortModule} from '@angular/material/sort';
+import {MatSliderModule} from '@angular/material/slider';
 import { NgChartsModule } from 'ng2-charts';@NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { NgChartsModule } from 'ng2-charts';@NgModule({
     MatPaginatorModule,
     MatInputModule,
     MatSortModule,
-    NgChartsModule
+    NgChartsModule,
+    MatSliderModule
 
 
   ],

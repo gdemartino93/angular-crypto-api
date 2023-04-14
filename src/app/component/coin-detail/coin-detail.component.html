@@ -9,8 +9,15 @@
 
     </div>
     <div class="col-lg-8 col-12 my-5 my-lg-0">
-      <canvas baseChart [data]="lineChartData" [type]="lineChartType" [options]="lineChartOptions" >
+
+      <canvas baseChart [data]="lineChartData" [type]="lineChartType" [options]="lineChartOptions"  >
       </canvas>
+      <mat-slider  min="1" max="31" step="1" [(ngModel)]="days" (input)="updateProva(days)">
+        <input matSliderThumb [value]="days">
+      </mat-slider>
+{{ days  }} {{ days > 1 ? "giorni" : "giorno" }}
+
+
     </div>
   </div>
 </div>

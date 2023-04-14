@@ -44,8 +44,9 @@ export class CoinDetailComponent implements OnInit {
   @ViewChild(BaseChartDirective) myLineChart !: BaseChartDirective;
   coinId : any;
   coinData !: any;
-  days : number = 30;
+  days : any;
   currency : string = "";
+
   constructor(private api : ApiService,private activatedRoute : ActivatedRoute,private currentyService : CurrencyService) { }
 
   ngOnInit(): void {
@@ -86,5 +87,11 @@ getGraph(){
 
    })
   })
+}
+updateProva(value: number) {
+  this.days = value;
+  setTimeout(() => {
+    this.getGraph();
+  }, 0);
 }
 }
