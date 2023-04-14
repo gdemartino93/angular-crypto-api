@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrencyService } from './service/currency.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,10 @@ export class AppComponent {
   title = 'angular-crypto-api';
   selectedCurrency : string ='EUR'
 
-  constructor(){
+  constructor(private currency : CurrencyService){
   }
   changeCurrency(event:string){
+    this.currency.setCurrency(event)
     console.log(event)
   }
 }

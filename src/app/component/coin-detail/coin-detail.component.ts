@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { ChartConfiguration, ChartType} from 'chart.js'
 import { BaseChartDirective} from 'ng2-charts'
 import { log } from 'console';
+import { CurrencyService } from 'src/app/service/currency.service';
 @Component({
   selector: 'app-coin-detail',
   templateUrl: './coin-detail.component.html',
@@ -44,8 +45,8 @@ export class CoinDetailComponent implements OnInit {
   coinId : any;
   coinData !: any;
   days : number = 30;
-
-  constructor(private api : ApiService,private activatedRoute : ActivatedRoute) { }
+  currency : string = "";
+  constructor(private api : ApiService,private activatedRoute : ActivatedRoute,private currentyService : CurrencyService) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(el =>{
@@ -53,6 +54,12 @@ export class CoinDetailComponent implements OnInit {
     })
     this.getSingleCoin();
     this.getGraph();
+    this.currentyService.getCurrency().subscribe(val => {
+      this.currency = val;
+      this.getSingleCoin();
+      this.getGraph();
+
+    })
   }
 getSingleCoin(){
   this.api.getCurrencyById(this.coinId)

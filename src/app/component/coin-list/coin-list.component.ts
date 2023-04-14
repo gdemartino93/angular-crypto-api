@@ -5,6 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { CurrencyService } from 'src/app/service/currency.service';
 
 @Component({
   selector: 'app-coin-list',
@@ -13,11 +14,12 @@ import { Router } from '@angular/router';
 })
 export class CoinListComponent implements OnInit {
 
-  constructor(private api: ApiService, private router:Router) { }
+  constructor(private api: ApiService, private router:Router,private currencyService : CurrencyService) { }
 
   coins : any[] = []; //array che conterrà tutte le monete in trend per il jumbotron
 
   dataSource = new MatTableDataSource<any>(this.coins);
+  currency : string ="";
   displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -25,24 +27,27 @@ export class CoinListComponent implements OnInit {
   ngOnInit(): void {
     this.getAllData();
     this.getBannerData();
+    this.currencyService.getCurrency().subscribe( val => {
+      this.currency = val;
+      this.getAllData();
+      this.getBannerData();
+    })
   }
   //ottieni tutti risposta e riempi la tabella di angular material
   getAllData(){
-    this.api.getCurrency('EUR')
+    this.api.getCurrency(this.currency)
     .subscribe(res=>{
       console.log(res)
       this.dataSource = new MatTableDataSource(res)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort
-      console.log(this.dataSource)
     })
   }
   //ottieni le monete in trending per il jumbotron e popola l'array coins
   getBannerData(){
-    this.api.getTrendingCurrency("EUR")
+    this.api.getTrendingCurrency(this.currency)
     .subscribe(res => {
       this.coins = res;
-      console.log(this.coins)
     })
   }
   //funzione per aprire la moneta cliccata
