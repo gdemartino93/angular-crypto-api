@@ -69,7 +69,7 @@ getSingleCoin(){
     })
 }
 getGraph(){
-  this.api.getGrpahicalCurrencyData(this.coinId,'EUR',1)
+  this.api.getGrpahicalCurrencyData(this.coinId,'EUR',this.days)
   .subscribe(res => {
     setTimeout(() => {
       this.myLineChart.chart?.update();

@@ -4,7 +4,9 @@
       <img [src]="coinData?.image?.large" alt="{{ coinData.name }}">
       <span class="my-lg-3  fs-1">{{ coinData.name }} ({{ coinData.symbol.toUpperCase() }})</span>
       <span class="fs-4">Market Rank: #{{ coinData.market_cap_rank }}</span>
+      <!-- problem with nested interpolation GG -->
       <span class="fs-4">Prezzo corrente: {{ coinData.market_data.current_price.eur | currency:currency }}</span>
+
     </div>
     <div class="col-lg-8 col-12 my-5 my-lg-0">
       <canvas baseChart [data]="lineChartData" [type]="lineChartType" [options]="lineChartOptions" >
